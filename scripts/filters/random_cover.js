@@ -5,6 +5,8 @@
 
 'use strict'
 
+const path = require('path')
+
 hexo.extend.filter.register('before_post_render', function (data) {
   const imgTestReg = /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/i
   let randomCover
