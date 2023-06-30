@@ -4,7 +4,8 @@ script.
     else {
       getScript('!{url_for(theme.asset.pangu)}')
         .then(() => {
-          pangu.autoSpacingPage()
+          // pangu.autoSpacingPage()
+          pangu.spacingElementByClassName('layout');
         })
     }
   }

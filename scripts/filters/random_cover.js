@@ -18,6 +18,14 @@ hexo.extend.filter.register('before_post_render', function (data) {
   }
 
   const randomCoverFn = () => {
+    // 自定义封面
+    const pics = hexo.render.renderSync({ path: path.join(hexo.source_dir, '/pics.txt') }).replace(/(^\s*)|(\s*$)/g, '')
+    const arr = pics.split('\n')
+    if(arr.length>0){
+      const num = Math.floor(Math.random() * arr.length)
+      return arr[num]
+    }
+    // default
     const theme = hexo.theme.config
     if (!(theme.cover && theme.cover.default_cover)) return false
     if (!Array.isArray(theme.cover.default_cover)) return theme.cover.default_cover
